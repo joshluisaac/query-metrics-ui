@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.name = "Joshua";
     this.phoneNumber = "8907665566";
+    this.count = 0;
   }
 
   increment() {
