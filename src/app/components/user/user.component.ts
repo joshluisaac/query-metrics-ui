@@ -11,7 +11,7 @@ export class UserComponent implements OnInit {
   name: string;
   phoneNumber: string;
   count: number;
-  posts: any;
+  posts: IPost[];
 
   constructor(private dataService: DataService) {}
 
@@ -20,9 +20,8 @@ export class UserComponent implements OnInit {
     this.phoneNumber = "8907665566";
     this.count = 0;
 
-    this.dataService.getPosts().subscribe(posts => {
-      //console.log(posts);
-      this.posts = posts;
+    this.dataService.getPosts().subscribe((data: IPost[]) => {
+      this.posts = data;
     });
   }
 
@@ -35,7 +34,7 @@ export class UserComponent implements OnInit {
   }
 }
 
-interface Post {
+interface IPost {
   id: number;
   userId: string;
   title: string;
